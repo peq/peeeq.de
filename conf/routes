@@ -1,0 +1,12 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /                           controllers.MainController.index()
+GET     /code/		               controllers.CodePasteController.index()
+POST     /code/		               controllers.CodePasteController.post()
+GET     /code/$id<[0-9]+>		               controllers.CodePasteController.showCode(id: Int)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /webjars/*file              controllers.WebJarAssets.at(file)

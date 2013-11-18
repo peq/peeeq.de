@@ -1,0 +1,164 @@
+body {
+	padding: 0px;
+}
+
+
+body > .container {
+	margin-top: 20px;
+	padding: 0 10px;
+}
+body .container_wide {
+	width: auto;
+}
+
+@media (min-width: 800px) {
+	body > .container {
+		padding: 0 20px;
+	}
+}
+
+@media (min-width: 1500px) {
+	body > .container {
+		padding: 0 30px;
+	}
+}
+
+
+textarea#code {
+	width: 100%;
+	height: 300px;	
+}
+
+#lang_field {
+	float: left;
+	
+}
+
+#lang_field > label {
+	float: left;
+	margin-right: 20px;
+	line-height:30px;
+}
+
+#lang_field > div {
+	float: left;
+}
+
+#submitButton {
+	float: right;
+}
+
+p#disclaimer {
+	clear: both;
+	padding-top: 25px;
+}
+
+
+
+.code {
+	counter-reset: code;
+    color: #000000;
+    font-family: Consolas,monospace,Corier New,Verdana,Tahoma,Arial;
+    font-size: 16px;
+    line-height: 160%;
+    /*margin: 20px 20px 20px 50px;*/
+    white-space: pre;
+    white-space: pre-wrap;
+    border: none;
+    background: none;
+    padding-left: 60px;
+    tab-size: 4;
+    -moz-hyphens: none;
+    -moz-tab-size: 4;
+}
+
+/*
+.code .lineNr {
+	counter-increment: code;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: #aaa;
+	display: inline-block;
+    min-width: 50px;
+    text-align: right;
+    white-space: pre;
+    margin-left:-60px;
+}
+*/
+
+.code .lineNr {
+	counter-increment: code;
+}
+
+.code .lineNr:before {
+  content: counter(code);
+  float: left;
+  margin-left: -30px;
+  width: 25px;
+  text-align: right;
+  color: #aaa;
+}
+
+.code .tab {
+    display: inline-block;
+    width: 20px;
+}
+
+.code .style_keyword {
+    color: #333366;
+    font-weight: bold;
+}
+.code .style_function {
+    color: #990066;
+}
+.code .style_string {
+    color: #55CC55;
+}
+.code .style_comment {
+    color: #999999;
+    font-style: italic;
+}
+.code .style_type {
+    color: #228888;
+}
+.code .style_symbol {
+    color: #000000;
+    font-weight: bold;
+}
+.code .style_int {
+    color: #AA0000;
+}
+.code .style_float {
+    color: #AA8800;
+}
+.code .style_preprocessor {
+    color: #FF7733;
+}
+
+.code .style_constant {
+    color: #BC9494;
+}
+
+
+
+
+
+.code .highlight_line {
+    background-color: #FFFF77;
+    display: list-item;
+    height: 16px;
+    white-space: pre;
+    width: 100%;
+}
+.code .normal_line {
+    display: list-item;
+    height: 16px;
+    white-space: pre;
+}
+.code .highlight {
+    background-image: url("difference.png");
+}

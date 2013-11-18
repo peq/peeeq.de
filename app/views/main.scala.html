@@ -1,0 +1,83 @@
+@(title: String, 
+	footerScripts: List[Html] = Nil, 
+	additionalHeaders: List[Html] = Nil, 
+	containerClass: String = "container")(content: Html)
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN" "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.css"))'>
+	<link rel='stylesheet' href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap-responsive.css"))'>
+	<link rel='stylesheet' href='@routes.Assets.at("stylesheets/peeeq.css")'>
+	<link rel="shortcut icon" type="image/x-icon" href="/peqsmalllogo.ico" />
+	<link rel='shortcut icon' type='image/x-icon' href='@routes.Assets.at("images/peqsmalllogo.ico")'>
+
+	
+	<title>@title</title>
+	
+	@for(header <- additionalHeaders) {
+		@header
+	}
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">peeeq.de</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              @*<li class="active"><a href="/">Home</a></li>*@
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post Code <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/code/?lang=jass">Jass (Warcraft III)</a></li>
+                  <li><a href="/code/?lang=wurst">Wurst</a></li>
+                  <li><a href="/code/?lang=wcgui">GUI (Warcraft III)</a></li>
+                  <li><a href="/code/?lang=galaxy">Galaxy (StarCraft II)</a></li>
+                  <li><a href="/code/?lang=scgui">GUI (StarCraft II)</a></li>
+                  <li><a href="/code/?lang=cpp">C++</a></li>
+                  <li><a href="/code/?lang=java">Java</a></li>
+                  <li><a href="/code/?lang=delphi">Delphi</a></li>
+                  <li><a href="/code/?lang=text">Text</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav">
+	          <li><a href="/codesearch.php">Search Code</a></li>
+	          <li><a href="/comparer.php">Compare Code</a></li>
+	          <li><a href="/uploads/">Uploads</a></li>
+	          <li><a href="/draw.php">Draw</a></li>
+	          <li><a href="/drawgraph.php">Graph</a></li>
+	          <li><a href="/blog/wp-login.php?redirect_to=index.php">Log in</a></li>
+          	</ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+</div>
+
+
+<div class="@containerClass">
+	@content
+</div>
+
+@for(footerScript <- footerScripts) {
+	@footerScript
+}
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))"></script>
+<script src="@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.js"))"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+@(codeForm: Form[controllers.CodePasteController.CodePasteFormData])(implicit token: RequestHeader)
+@import helper._ 
+@import helper.twitterBootstrap._
+@import controllers.CodePasteController.CodePasteFormData
+
+
+@main("Post Code") {
+	
+	@form(routes.CodePasteController.post()) {
+		@CSRF.formField
+		@helper.textarea(codeForm("code"), '_label -> "Code" )
+  		@select(field = codeForm("lang"), 
+  			options = options(List("Wurst","Jass")),
+  			'_label -> "Language"
+  		)
+  		<input id="submitButton" type="submit" class="btn btn-primary btn-large" value="Post Code">
+	}
+	
+	<p id="disclaimer">
+		Note: Only post code here if you have the rights to do so and accept, that
+		it will be visible to anyone.
+	</p>
+	
+}
